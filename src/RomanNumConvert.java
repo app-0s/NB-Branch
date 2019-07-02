@@ -1,7 +1,9 @@
 import java.util.Stack;
 
 public class RomanNumConvert {
+	// Self
     public static int romanToInt(String s) {
+
         int convertedRomans = 0;
         /*
             DS: Stack
@@ -16,6 +18,8 @@ public class RomanNumConvert {
             romanStack.push(s.charAt(i));
         }
         
+        //"MCMXCIV"
+        
         while(!romanStack.empty() && Character.isLetter(romanStack.peek()) ){
             char c = Character.toUpperCase(romanStack.pop());
             
@@ -27,11 +31,11 @@ public class RomanNumConvert {
                     convertedRomans -= 1;
                     romanStack.pop();
                 }
-                else if(c == 'X' && (romanStack.peek() == 'L' || romanStack.peek() == 'C')) {
+                else if(romanStack.peek()  == 'X' && (c == 'L' || c == 'C')) {
                     convertedRomans -= 10;
                     romanStack.pop();
                 }
-                else if(c == 'C' && (romanStack.peek() == 'D' || romanStack.peek() == 'M')) {
+                else if(romanStack.peek()  == 'C' && (c == 'D' || c == 'M')) {
                     convertedRomans -= 100;
                     romanStack.pop();
                 }
@@ -52,7 +56,7 @@ public class RomanNumConvert {
             else if(c == 'D')
                 convertedRomans += 500;
             else if(c == 'M')
-                convertedRomans += 100;
+                convertedRomans += 1000;
             
         }
         if(!romanStack.isEmpty())
@@ -60,4 +64,15 @@ public class RomanNumConvert {
         	
         return convertedRomans;
 	}
+    
+    // Solution found. Recreated for learning purposes
+    public static int romanToIntHash(String s) {
+    	/*	DS: Hashmap
+    	 * 	Steps:
+    	 *  1. Add each character to a hash map
+    	 *  2.  
+    	 * 
+    	 */
+    	return 0;
+    }
 }
